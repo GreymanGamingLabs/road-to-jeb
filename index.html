@@ -3,24 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Road to Jeb - Minecraft Quiz</title>
+  <title>The Road to Jeb</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:,">
 </head>
 <body>
-  <div class="container">
-    <h1>🐑 The Road to Jeb ⛏️</h1>
-    <p class="subtitle">Answer Minecraft trivia to race to Jeb the Rainbow Sheep!</p>
 
-    <div class="card" id="quizCard">
-      <span class="badge" id="cardBadge">Question</span>
-      <div class="content" id="cardContent">Loading...</div>
-      <p class="hint" id="cardHint">Click the card to reveal the answer</p>
+  <header>
+    <h1>🐑 The Road to Jeb ⛏️</h1>
+    <p>Answer Minecraft trivia to race to Jeb the Rainbow Sheep!</p>
+  </header>
+
+  <main>
+    <div id="card" class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <span class="badge">QUESTION</span>
+          <p id="question">Loading...</p>
+          <span class="subtext">Click the card to reveal the answer</span>
+        </div>
+        <div class="card-back">
+          <span class="badge">ANSWER</span>
+          <p id="answer">...</p>
+        </div>
+      </div>
     </div>
 
     <div class="controls">
-      <button id="nextBtn">Next Question ➡️</button>
+      <button id="next">Next Question ➡️</button>
     </div>
-  </div>
+  </main>
 
   <script src="questions.js"></script>
   <script src="script.js"></script>
