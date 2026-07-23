@@ -1,4 +1,4 @@
-  const questions = [
+const questions = [
   // --- MOBS & CREATURES ---
   { question: "What special rainbow effect happens when you name a sheep 'jeb_' using a name tag?", answer: "The sheep's wool continuously cycles through all rainbow colors!" },
   { question: "Which mob drops Ender Pearls when defeated?", answer: "Enderman." },
@@ -112,9 +112,9 @@
   { question: "What is the maximum stack size for most items in Minecraft?", answer: "64." },
   { question: "What is the maximum stack size for Ender Pearls, Eggs, and Snowballs?", answer: "16." },
   { question: "What item cannot be stacked at all in inventory slots?", answer: "Tools, Armor, Weapons, Boats, Minecarts, Beds, and Potions." },
-  { question: "Who is the original creator of Minecraft?", answer: "Markus 'Notch' Persson." }
+  { question: "Who is the original creator of Minecraft?", answer: "Markus 'Notch' Persson." },
 
-    // --- REDSTONE & MECHANICS ---
+  // --- REDSTONE & MECHANICS ---
   { question: "What redstone component delays a signal and prevents backflow?", answer: "Redstone Repeater." },
   { question: "What component compares redstone signals or measures container fullness?", answer: "Redstone Comparator." },
   { question: "What block outputs a redstone signal when it detects a block update in front of it?", answer: "Observer." },
@@ -226,9 +226,9 @@
   { question: "What container item holds up to 64 items of various types in one inventory slot?", answer: "Bundle." },
   { question: "What decorative container retains its inventory items when broken and picked up?", answer: "Shulker Box." },
   { question: "What item is crafted with 1 Compass and 8 Paper?", answer: "Empty Map." },
-  { question: "What block glows when powered and can project colored beacon lights into the sky?", answer: "Beacon." }
+  { question: "What block glows when powered and can project colored beacon lights into the sky?", answer: "Beacon." },
 
-// --- MOB BEHAVIOR & DROPS ---
+  // --- MOB BEHAVIOR & DROPS ---
   { question: "What mob drops a Totem of Undying when defeated?", answer: "Evoker." },
   { question: "What mob summons Vexes to attack players?", answer: "Evoker." },
   { question: "What item do Sniffers dig up from Moss Blocks?", answer: "Torchflower Seeds and Pitcher Pods." },
@@ -345,12 +345,121 @@
   // --- LIGHTING & DECORATIVE BLOCKS ---
   { question: "What underwater light source drops Prismarine Shards and Crystals?", answer: "Sea Lantern." },
   { question: "What light-emitting block is found hanging in Nether Fortresses?", answer: "Glowstone." },
-  { question: "What light source is crafted with Iron Nuggies and a Torch?", answer: "Lantern." },
+  { question: "What light source is crafted with Iron Nuggets and a Torch?", answer: "Lantern." },
   { question: "What light source is crafted with Soul Soil, Iron Nuggets, and a Torch?", answer: "Soul Lantern." },
   { question: "What color flame does a Soul Torch or Soul Lantern emit?", answer: "Blue." },
   { question: "What light source block is crafted using 4 Amethyst Shards and a Copper Ingot?", answer: "Spyglass." },
   { question: "What tool allows players to zoom in on distant objects?", answer: "Spyglass." },
   { question: "What item is crafted with 1 Copper Ingot and 2 Amethyst Shards?", answer: "Spyglass." },
   { question: "What block attracts lightning strikes away from flammable wooden structures?", answer: "Lightning Rod." },
-  { question: "What metal block oxidizes over time, changing from orange to green?", answer: "Copper Block." }
+  { question: "What metal block oxidizes over time, changing from orange to green?", answer: "Copper Block." },
+
+  // --- REDSTONE, RAILS & LOGIC ---
+  { question: "What block powers redstone lines beneath it when activated by arrows or tridents?", answer: "Target Block." },
+  { question: "What block detects when an item is placed on or removed from a Lectern?", answer: "Redstone Comparator." },
+  { question: "What redstone block gives off a pulse when a player steps on or off of it?", answer: "Pressure Plate." },
+  { question: "What type of Pressure Plate only activates when a player (and not a mob) steps on it?", answer: "Heavy Weighted Pressure Plate (Iron)." },
+  { question: "What type of Pressure Plate detects the exact entity count on top of it?", answer: "Light Weighted Pressure Plate (Gold)." },
+  { question: "What block activates a redstone signal when a mob walks onto its string connection?", answer: "Tripwire Hook." },
+  { question: "What rail type detects when a Minecart rolls over it and sends a redstone signal?", answer: "Detector Rail." },
+  { question: "What rail type changes direction when powered by a redstone signal?", answer: "Standard Rail T-junction." },
+  { question: "What block can store up to 3 layers of redstone power vertically without wires?", answer: "Redstone Dust on staircase blocks." },
+  { question: "What block emits light and can be toggled on/off using redstone?", answer: "Redstone Lamp." },
+
+  // --- ARMOR, WEAPONS & COMBAT ---
+  { question: "What armor enchantment reduces damage taken from explosions?", answer: "Blast Protection." },
+  { question: "What armor enchantment reduces damage taken from projectile attacks like arrows?", answer: "Projectile Protection." },
+  { question: "What armor enchantment reduces damage from fire and lava?", answer: "Fire Protection." },
+  { question: "What boot enchantment reduces fall damage?", answer: "Feather Falling." },
+  { question: "What boot enchantment allows players to walk at normal speed through water?", answer: "Depth Strider." },
+  { question: "What boot enchantment increases movement speed on Soul Sand and Soul Soil?", answer: "Soul Speed." },
+  { question: "What helmet enchantment allows players to mine blocks faster underwater?", answer: "Aqua Affinity." },
+  { question: "What bow enchantment gives you unlimited normal arrows as long as you have 1 in your inventory?", answer: "Infinity." },
+  { question: "What bow enchantment sets arrows on fire when shot?", answer: "Flame." },
+  { question: "What bow enchantment knocks mobs back when hit?", answer: "Punch." },
+  { question: "What weapon enchantment increases damage dealt by heavy falling attacks?", answer: "Density (or Breach)." },
+  { question: "What shield custom decoration item allows players to display patterns on their shields?", answer: "Banner." },
+  { question: "What item is used to trim armor pieces with custom patterns and colors?", answer: "Armor Trim Template." },
+  { question: "How many different Armor Trim designs exist in Minecraft?", answer: "18+ designs." },
+  { question: "What weapon item can be held in the off-hand slot to block incoming attacks?", answer: "Shield." },
+
+  // --- OCEAN, CAVES & UNDERGROUND ---
+  { question: "What plant block grows on underwater gravel and yields Dried Kelp when cooked?", answer: "Kelp." },
+  { question: "What water mob releases black ink particles when attacked or scared?", answer: "Squid." },
+  { question: "What small passive mob swims in schools and drops Bone Meal when killed?", answer: "Cod (or Salmon)." },
+  { question: "What hostile underwater mob wields Tridents and spawns in deep ocean biomes?", answer: "Drowned." },
+  { question: "What stone structure generates in Lush Caves and hangs like green vines?", answer: "Cave Vines (Glow Berries)." },
+  { question: "What fruit item grows on Cave Vines and emits light underground?", answer: "Glow Berries." },
+  { question: "What block type in Dripstone Caves forms pointed stalactites and stalagmites?", answer: "Pointed Dripstone." },
+  { question: "What mineral block forms large geodes underground surrounded by Smooth Basalt?", answer: "Amethyst Block / Geode." },
+  { question: "What purple crystal grows inside Amethyst Geodes?", answer: "Amethyst Cluster / Shard." },
+  { question: "What block absorbs nearby water blocks when placed, turning into a Wet variant?", answer: "Sponge." },
+
+  // --- MOB VARIANTS & UNIQUE CREATURES ---
+  { question: "What rare blue variant of the Axolotl has a 1 in 1200 spawn chance?", answer: "Blue Axolotl." },
+  { question: "What passive mob comes in 3 color variants depending on the temperature of the biome it hatches in?", answer: "Frog (Temperate, Warm, Cold)." },
+  { question: "What light-emitting block is dropped when a Frog eats a small Magma Cube?", answer: "Froglight." },
+  { question: "What item do Sniffers hatch from when placed on Moss Blocks?", answer: "Sniffer Egg." },
+  { question: "What friendly mob floats and carries items to note blocks or players?", answer: "Allay." },
+  { question: "What neutral mob rolls into a ball to protect itself when threats are nearby?", answer: "Armadillo." },
+  { question: "What aggressive mob spawns from Trial Spawners and shoots gusts of wind?", answer: "Breeze." },
+  { question: "What mob in the Deep Dark responds to vibrations and footsteps?", answer: "The Warden." },
+  { question: "What mob turns blue when swimming in water for too long?", answer: "Drowned (Zombies convert to Drowned)." },
+  { question: "What hostile mob converts into a Stray when trapped in Powder Snow?", answer: "Skeleton." },
+  { question: "What hostile mob converts into a Bogged when spawning in Mangrove Swamps or Trial Chambers?", answer: "Bogged (poison skeleton variant)." },
+  { question: "What passive mob spits at players or other mobs when attacked?", answer: "Llama." },
+  { question: "What neutral mob headbutts players off mountain cliffs?", answer: "Goat." },
+  { question: "What mob drops Rabbit Foot items used in brewing Potion of Leaping?", answer: "Rabbit." },
+  { question: "What mob transforms into a Witch when hit by lightning?", answer: "Villager." },
+
+  // --- BREWING, POTIONS & EFFECTS ---
+  { question: "What status effect increases your jump height?", answer: "Jump Boost." },
+  { question: "What status effect allows players to move faster?", answer: "Speed (Swiftness)." },
+  { question: "What status effect reduces incoming damage taken from attacks?", answer: "Resistance." },
+  { question: "What status effect slowly drains health over time but cannot kill you?", answer: "Poison." },
+  { question: "What status effect rapidly drains health over time and CAN kill you?", answer: "Wither." },
+  { question: "What status effect causes your view to darken and limits visibility range?", answer: "Blindness (or Darkness)." },
+  { question: "What potion ingredient crafts a Potion of Night Vision?", answer: "Golden Carrot." },
+  { question: "What potion ingredient crafts a Potion of Invisibility when added to Night Vision?", answer: "Fermented Spider Eye." },
+  { question: "What potion ingredient crafts a Potion of Water Breathing?", answer: "Pufferfish." },
+  { question: "What potion ingredient crafts a Potion of Fire Resistance?", answer: "Magma Cream." },
+  { question: "What potion ingredient crafts a Potion of Strength?", answer: "Blaze Powder." },
+  { question: "What potion ingredient crafts a Potion of Slow Falling?", answer: "Phantom Membrane." },
+  { question: "What potion ingredient crafts a Potion of Turtle Master?", answer: "Turtle Shell." },
+  { question: "What status effect does the Potion of Turtle Master grant?", answer: "Slowness IV and Resistance IV." },
+  { question: "What status effect causes ominous particles around players before triggering a Raid?", answer: "Bad Omen." },
+
+  // --- DECORATION, WOOD & BUILDING ---
+  { question: "How many plank blocks are crafted from 1 Wood Log?", answer: "4 Wood Planks." },
+  { question: "What block variant is crafted using 4 Wood Planks in a square?", answer: "Crafting Table." },
+  { question: "What decorative wood block variant has bark textures on all 6 sides?", answer: "Wood Block (Hyphae / Wood)." },
+  { question: "What tool strips the bark off a wood log when right-clicked?", answer: "Axe." },
+  { question: "What decorative container displays potted plants like Ferns or Cacti?", answer: "Flower Pot." },
+  { question: "What decorative item hangs on walls and displays weapons or armor icons?", answer: "Item Frame." },
+  { question: "What block displays armor pieces full-sized in the world?", answer: "Armor Stand." },
+  { question: "What stone block variant is crafted using 4 Cobblestone blocks?", answer: "Stone Bricks." },
+  { question: "What block type is crafted using 3 Stone blocks in a Stonecutter?", answer: "Slabs / Stairs / Walls." },
+  { question: "What block is created by smelting Cobblestone in a Furnace?", answer: "Stone." },
+  { question: "What block is created by smelting Stone in a Furnace?", answer: "Smooth Stone." },
+  { question: "What colorful clay block is made by smelting dyed Terracotta?", answer: "Glazed Terracotta." },
+  { question: "How many unique painting designs exist in Minecraft?", answer: "30+ paintings." },
+  { question: "What block displays custom text and can be placed on walls or ground?", answer: "Sign (or Hanging Sign)." },
+  { question: "What item glows when applied to text on Signs?", answer: "Glow Ink Sac." },
+
+  // --- WORLD GENERATION & TRIVIA ---
+  { question: "What height boundary (Y level) was introduced as the absolute bottom of the world in 1.18?", answer: "Y = -64." },
+  { question: "What height boundary (Y level) is the maximum build height in the Overworld?", answer: "Y = 320." },
+  { question: "What dimensional portal color is formed by Nether Portals?", answer: "Purple." },
+  { question: "What dimensional portal color is formed by End Portals?", answer: "Black / Starry Space." },
+  { question: "What status effect is inflicted by stepping on Rose Bushes or Wither Roses?", answer: "Wither." },
+  { question: "What item allows players to set a custom spawn point without sleeping through the night?", answer: "Bed (right-clicked during daytime sets spawn)." },
+  { question: "What happens when light level drops to 0 in complete darkness?", answer: "Hostile mobs spawn!" },
+  { question: "What tool enchantments are mutually exclusive with Silk Touch?", answer: "Fortune." },
+  { question: "What weapon enchantments are mutually exclusive with Sharpness?", answer: "Smite and Bane of Arthropods." },
+  { question: "What bow enchantments are mutually exclusive with Infinity?", answer: "Mending." },
+  { question: "What Trident enchantments are mutually exclusive with Riptide?", answer: "Loyalty and Channeling." },
+  { question: "What tool allows players to carve custom patterns into Chiseled Bookshelves?", answer: "Books (placed inside)." },
+  { question: "What container block holds up to 6 Books and outputs redstone signals based on book count?", answer: "Chiseled Bookshelf." },
+  { question: "What mob drops Bones and Arrows when defeated?", answer: "Skeleton." },
+  { question: "What mob drops Rotten Flesh when defeated?", answer: "Zombie." }
 ];
