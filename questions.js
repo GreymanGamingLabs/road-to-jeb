@@ -1,17 +1,3 @@
-Aha! That confirms it!
-
-Because `questions.js` starts directly with `const questions = [`, the **`Invalid or unexpected token`** error means there's a stray character, a missing quote, or an unescaped apostrophe somewhere deeper in the file (often caused by copy-pasting code block formatting).
-
-Here is a **100% clean, ready-to-use version** of `questions.js` with all 300+ questions formatted cleanly.
-
-### How to update:
-
-1. Open your **`questions.js`** file.
-2. Select everything (**Ctrl + A** or **Cmd + A**) and **delete it**.
-3. Copy the entire raw JS array from the code block below and paste it in.
-4. Save/Commit, then force-refresh your site (**Ctrl + F5** or **Cmd + Shift + R**).
-
-```javascript
 const questions = [
   // --- MOBS & CREATURES ---
   {
