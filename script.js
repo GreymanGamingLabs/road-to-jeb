@@ -1,52 +1,59 @@
-let remainingQuestions = [];
+let currentQuestion = 0;
+let score = 0;
+let shuffledQuestions = [];
 
+// Shuffle questions
 function shuffleQuestions() {
-    remainingQuestions = [...questions];
-
-    for (let i = remainingQuestions.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [remainingQuestions[i], remainingQuestions[j]] = [remainingQuestions[j], remainingQuestions[i]];
-    }
+    shuffledQuestions = [...questions].sort(() => Math.random() - 0.5);
 }
 
+// Start the game
 function startGame() {
-
-    document.getElementById("home-screen").style.display = "none";
-    document.getElementById("game-screen").style.display = "block";
+    currentQuestion = 0;
+    score = 0;
 
     shuffleQuestions();
-
-    nextQuestion();
+    showQuestion();
 }
 
-function nextQuestion() {
+// Show question
+function showQuestion() {
+    const questionData = shuffledQuestions[currentQuestion];
 
-    if (remainingQuestions.length === 0) {
+    document.getElementById("question").innerText = questionData.question;
 
-        shuffleQuestions();
+    const answersDiv = document.getElementById("answers");
+    answersDiv.innerHTML = "";
 
+    questionData.answers.forEach(answer => {
+        const button = document.createElement("button");
+        button.innerText = answer.text;
+
+        button.onclick = () => checkAnswer(answer.correct);
+
+        answersDiv.appendChild(button);
+    });
+}
+
+// Check answer
+function checkAnswer(correct) {
+    if (correct) {
+        score++;
     }
 
-    currentQuestion = remainingQuestions.pop();
+    currentQuestion++;
 
-    document.getElementById("question").innerText = currentQuestion.question;
-
-    document.getElementById("answer").innerText = currentQuestion.answer;
-
-    document.getElementById("answer-box").style.display = "none";
-
-    document.getElementById("reveal-btn").style.display = "inline-block";
-
-    document.getElementById("next-btn").style.display = "none";
-
+    if (currentQuestion < shuffledQuestions.length) {
+        showQuestion();
+    } else {
+        endGame();
+    }
 }
 
-function revealAnswer() {
+// End game
+function endGame() {
+    document.getElementById("question").innerText =
+        `Game Over! Score: ${score}/${shuffledQuestions.length}`;
 
-    document.getElementById("answer-box").style.display = "block";
-
-    document.getElementById("reveal-btn").style.display = "none";
-
-    document.getElementById("next-btn").style.display = "inline-block";
-
+    document.getElementById("answers").innerHTML = "";
 }
