@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head><link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🌈 The Road to Jeb</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<h1>🌈 The Road to Jeb</h1>
+    <div class="container">
 
-<button>Start Game</button>
+        <h1>🌈 THE ROAD TO JEB</h1>
+
+        <div id="home-screen">
+            <p class="subtitle">Travel the road, answer Minecraft questions, and reach Jeb the rainbow sheep!</p>
+            <button onclick="startGame()">▶ Start Game</button>
+        </div>
+
+        <div id="game-screen" style="display:none;">
+
+            <div class="question-box">
+                <h2 id="question">Question appears here</h2>
+            </div>
+
+            <div id="answer-box" style="display:none;">
+                <h3>Answer:</h3>
+                <p id="answer">Answer appears here</p>
+            </div>
+
+            <button id="reveal-btn" onclick="revealAnswer()">👀 Reveal Answer</button>
+
+            <button id="next-btn" onclick="nextQuestion()" style="display:none;">⏭ Next Question</button>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
