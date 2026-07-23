@@ -1,59 +1,46 @@
-let currentQuestion = 0;
-let score = 0;
-let shuffledQuestions = [];
+let currentQuestionIndex = 0;
+let isShowingAnswer = false;
 
-// Shuffle questions
-function shuffleQuestions() {
-    shuffledQuestions = [...questions].sort(() => Math.random() - 0.5);
+const quizCard = document.getElementById('quizCard');
+const cardBadge = document.getElementById('cardBadge');
+const cardContent = document.getElementById('cardContent');
+const cardHint = document.getElementById('cardHint');
+const nextBtn = document.getElementById('nextBtn');
+
+function displayCard() {
+  const currentData = questions[currentQuestionIndex];
+  
+  if (!isShowingAnswer) {
+    quizCard.classList.remove('answer-mode');
+    cardBadge.textContent = `Question ${currentQuestionIndex + 1}`;
+    cardContent.textContent = currentData.question;
+    cardHint.textContent = "Click anywhere on the card to reveal answer";
+  } else {
+    quizCard.classList.add('answer-mode');
+    cardBadge.textContent = "Answer";
+    cardContent.textContent = currentData.answer;
+    cardHint.textContent = "Click 'Next Question' to continue";
+  }
 }
 
-// Start the game
-function startGame() {
-    currentQuestion = 0;
-    score = 0;
-
-    shuffleQuestions();
-    showQuestion();
+function toggleAnswer() {
+  isShowingAnswer = !isShowingAnswer;
+  displayCard();
 }
 
-// Show question
-function showQuestion() {
-    const questionData = shuffledQuestions[currentQuestion];
-
-    document.getElementById("question").innerText = questionData.question;
-
-    const answersDiv = document.getElementById("answers");
-    answersDiv.innerHTML = "";
-
-    questionData.answers.forEach(answer => {
-        const button = document.createElement("button");
-        button.innerText = answer.text;
-
-        button.onclick = () => checkAnswer(answer.correct);
-
-        answersDiv.appendChild(button);
-    });
+function nextQuestion() {
+  currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
+  isShowingAnswer = false;
+  displayCard();
 }
 
-// Check answer
-function checkAnswer(correct) {
-    if (correct) {
-        score++;
-    }
+// Click events
+quizCard.addEventListener('click', toggleAnswer);
 
-    currentQuestion++;
+nextBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); // Prevents triggering the card click event
+  nextQuestion();
+});
 
-    if (currentQuestion < shuffledQuestions.length) {
-        showQuestion();
-    } else {
-        endGame();
-    }
-}
-
-// End game
-function endGame() {
-    document.getElementById("question").innerText =
-        `Game Over! Score: ${score}/${shuffledQuestions.length}`;
-
-    document.getElementById("answers").innerHTML = "";
-}
+// Display initial question on load
+displayCard();
