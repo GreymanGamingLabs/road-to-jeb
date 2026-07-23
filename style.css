@@ -71,9 +71,6 @@ main {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border-radius: 12px;
-  background-color: #2b2d31;
-  border: 1px solid #3f4147;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,16 +79,22 @@ main {
   box-sizing: border-box;
 }
 
-/* Front Face */
+/* Front Face (Question) */
 .card-front {
   z-index: 2;
   transform: rotateY(0deg);
+  background-color: #2b2d31;
+  border: 1px solid #3f4147;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
-/* Back Face */
+/* Back Face (Answer) */
 .card-back {
   transform: rotateY(180deg);
   z-index: 1;
+  background-color: #1c3626; /* Distinct dark green background */
+  border: 2px solid #43a047; /* Bright green accent border */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
 /* Badge Headers */
@@ -106,6 +109,12 @@ main {
   border-radius: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+/* Gold badge on the answer side */
+.card-back .badge {
+  background-color: #ffd700;
+  color: #000000;
 }
 
 /* Question & Answer Text */
