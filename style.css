@@ -1,4 +1,4 @@
-/* General Page Styling */
+/* Page Layout */
 body {
   background-color: #1a1b1e;
   color: #ffffff;
@@ -26,14 +26,15 @@ h1 {
 
 /* Card Container 3D Perspective */
 .card {
-  width: 400px;
-  height: 250px;
+  width: 380px;
+  height: 240px;
   perspective: 1000px;
   cursor: pointer;
-  margin-bottom: 25px;
+  margin: 20px auto;
+  position: relative;
 }
 
-/* Inner Container for Flip Effect */
+/* Inner Flip Container */
 .card-inner {
   position: relative;
   width: 100%;
@@ -48,7 +49,7 @@ h1 {
   transform: rotateY(180deg);
 }
 
-/* Shared Styles for Front & Back Sides */
+/* Card Faces Stacking Rules */
 .card-front,
 .card-back {
   position: absolute;
@@ -70,18 +71,19 @@ h1 {
   box-sizing: border-box;
 }
 
-/* Front Side Specifics */
+/* Front Face */
 .card-front {
   z-index: 2;
+  transform: rotateY(0deg);
 }
 
-/* Back Side Specifics (Rotated 180 deg) */
+/* Back Face */
 .card-back {
   transform: rotateY(180deg);
   z-index: 1;
 }
 
-/* Badge (QUESTION / ANSWER) */
+/* Badge Headers */
 .badge {
   position: absolute;
   top: -12px;
@@ -97,9 +99,10 @@ h1 {
 
 /* Question & Answer Text */
 #question, #answer {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.5;
   margin: 10px 0;
+  color: #ffffff;
 }
 
 .subtext {
@@ -110,7 +113,7 @@ h1 {
   bottom: 15px;
 }
 
-/* Button Styling */
+/* Navigation Button */
 button {
   background-color: #2e7d32;
   color: white;
@@ -120,8 +123,8 @@ button {
   font-weight: bold;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s;
   box-shadow: 0 4px 0 #1b5e20;
+  margin-top: 10px;
 }
 
 button:hover {
