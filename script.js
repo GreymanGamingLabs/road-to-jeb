@@ -54,6 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Load the initial card
+  // Load initial card
   displayCard();
 });
