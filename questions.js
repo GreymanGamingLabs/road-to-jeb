@@ -1,5 +1,4 @@
 const questions = [
-  // --- MOBS & CREATURES ---
   {
     question: "What special rainbow effect happens when you name a sheep 'jeb_' using a name tag?",
     answer: "The sheep's wool continuously cycles through all rainbow colors!"
