@@ -1,58 +1,59 @@
-let currentIndex = 0;
-let isShuffled = false;
-
-// Function to shuffle questions safely
-function shuffleQuestions() {
-  if (typeof questions !== 'undefined' && Array.isArray(questions)) {
-    for (let i = questions.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [questions[i], questions[j]] = [questions[j], questions[i]];
-    }
-    isShuffled = true;
+// Fisher-Yates Shuffle Algorithm
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
 }
 
-const card = document.getElementById('card');
-const questionText = document.getElementById('question');
-const answerText = document.getElementById('answer');
-const nextBtn = document.getElementById('next');
+let currentIndex = 0;
 
 function displayCard() {
-  // Shuffle once on the very first card display
-  if (!isShuffled) {
-    shuffleQuestions();
+  const card = document.getElementById('card');
+  const questionText = document.getElementById('question');
+  const answerText = document.getElementById('answer');
+
+  // Safety check: ensure questions array exists and has content
+  if (typeof questions === 'undefined' || !Array.isArray(questions) || questions.length === 0) {
+    if (questionText) questionText.textContent = "Error: Could not load questions.js";
+    return;
   }
 
-  if (!questions || questions.length === 0) return;
+  // Reset flip state when loading a new card
+  if (card) card.classList.remove('is-flipped');
 
-  // Reset card state
+  // Update card content
+  if (questionText) questionText.textContent = questions[currentIndex].question;
+  if (answerText) answerText.textContent = questions[currentIndex].answer;
+}
+
+// Initialize application when DOM is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+  const card = document.getElementById('card');
+  const nextBtn = document.getElementById('next');
+
+  // Shuffle questions array once on page load
+  if (typeof questions !== 'undefined' && Array.isArray(questions)) {
+    shuffle(questions);
+  }
+
+  // Card Flip Toggle
   if (card) {
-    card.classList.remove('is-flipped');
+    card.addEventListener('click', () => {
+      card.classList.toggle('is-flipped');
+    });
   }
-  
-  // Set content
-  if (questionText) {
-    questionText.textContent = questions[currentIndex].question;
+
+  // Next Question Button
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      if (typeof questions !== 'undefined' && questions.length > 0) {
+        currentIndex = (currentIndex + 1) % questions.length;
+        displayCard();
+      }
+    });
   }
-  if (answerText) {
-    answerText.textContent = questions[currentIndex].answer;
-  }
-}
 
-// Flip card event
-if (card) {
-  card.addEventListener('click', () => {
-    card.classList.toggle('is-flipped');
-  });
-}
-
-// Next button event
-if (nextBtn) {
-  nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % questions.length;
-    displayCard();
-  });
-}
-
-// Start app
-displayCard();
+  // Load the initial card
+  displayCard();
+});
