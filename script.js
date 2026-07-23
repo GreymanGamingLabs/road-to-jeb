@@ -1,46 +1,50 @@
-let currentQuestionIndex = 0;
-let isShowingAnswer = false;
-
-const quizCard = document.getElementById('quizCard');
-const cardBadge = document.getElementById('cardBadge');
-const cardContent = document.getElementById('cardContent');
-const cardHint = document.getElementById('cardHint');
-const nextBtn = document.getElementById('nextBtn');
-
-function displayCard() {
-  const currentData = questions[currentQuestionIndex];
-  
-  if (!isShowingAnswer) {
-    quizCard.classList.remove('answer-mode');
-    cardBadge.textContent = `Question ${currentQuestionIndex + 1}`;
-    cardContent.textContent = currentData.question;
-    cardHint.textContent = "Click anywhere on the card to reveal answer";
-  } else {
-    quizCard.classList.add('answer-mode');
-    cardBadge.textContent = "Answer";
-    cardContent.textContent = currentData.answer;
-    cardHint.textContent = "Click 'Next Question' to continue";
+// 1. Shuffle algorithm to randomize the array order
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
 }
 
-function toggleAnswer() {
-  isShowingAnswer = !isShowingAnswer;
-  displayCard();
+// 2. Shuffle questions as soon as the file loads
+shuffle(questions);
+
+let currentIndex = 0;
+const card = document.getElementById('card');
+const questionText = document.getElementById('question');
+const answerText = document.getElementById('answer');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+
+// 3. Display current card
+function displayCard() {
+  // Reset card state (make sure it's not flipped over when changing cards)
+  card.classList.remove('is-flipped');
+  
+  // Set question and answer content
+  questionText.textContent = questions[currentIndex].question;
+  answerText.textContent = questions[currentIndex].answer;
 }
 
-function nextQuestion() {
-  currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
-  isShowingAnswer = false;
-  displayCard();
-}
-
-// Click events
-quizCard.addEventListener('click', toggleAnswer);
-
-nextBtn.addEventListener('click', (e) => {
-  e.stopPropagation(); // Prevents triggering the card click event
-  nextQuestion();
+// 4. Flip card on click
+card.addEventListener('click', () => {
+  card.classList.toggle('is-flipped');
 });
 
-// Display initial question on load
+// 5. Button Navigation
+prevBtn.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    displayCard();
+  }
+});
+
+nextBtn.addEventListener('click', () => {
+  if (currentIndex < questions.length - 1) {
+    currentIndex++;
+    displayCard();
+  }
+});
+
+// 6. Initialize first card
 displayCard();
