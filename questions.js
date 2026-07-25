@@ -358,7 +358,7 @@ const questions = [
   { question: "What block powers redstone lines beneath it when activated by arrows or tridents?", answer: "Target Block." },
   { question: "What block detects when an item is placed on or removed from a Lectern?", answer: "Redstone Comparator." },
   { question: "What redstone block gives off a pulse when a player steps on or off of it?", answer: "Pressure Plate." },
-  { question: "What type of Pressure Plate only activates when a player (and not a mob) steps on it?", answer: "Heavy Weighted Pressure Plate (Iron)." },
+  { question: "What type of Pressure Plate is made with iron", answer: "Heavy Weighted Pressure Plate (Iron)." },
   { question: "What type of Pressure Plate detects the exact entity count on top of it?", answer: "Light Weighted Pressure Plate (Gold)." },
   { question: "What block activates a redstone signal when a mob walks onto its string connection?", answer: "Tripwire Hook." },
   { question: "What rail type detects when a Minecart rolls over it and sends a redstone signal?", answer: "Detector Rail." },
